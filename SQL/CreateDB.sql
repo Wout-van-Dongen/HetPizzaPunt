@@ -95,9 +95,13 @@ CREATE TABLE Orders(
     orderId INT AUTO_INCREMENT PRIMARY KEY,
     timeStamp TIMESTAMP NOT NULL,
     userId INT NOT NULL,
+    addressId INT NOT NULL,
     CONSTRAINT fk_Orders_Users
         FOREIGN KEY(userId)
-        REFERENCES Users(userId)
+        REFERENCES Users(userId),
+    CONSTRAINT fk_Orders_Adresses
+        FOREIGN KEY(addressId)
+        REFERENCES Addresses(addressId)
 )ENGINE = InnoDB;
 
 CREATE TABLE OrderProducts(
