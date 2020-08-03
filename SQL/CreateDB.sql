@@ -9,12 +9,13 @@ USE HetPizzaPunt;
 
 /* klant-gerelateerde data */
 CREATE TABLE Addresses(
-    AddressId INT NOT NULL PRIMARY KEY,
-    straatnaam VARCHAR(255) NOT NULL,
-    huisnummer SMALLINT UNSIGNED NOT NULL,
-    postbus VARCHAR(3) NOT NULL,
-    gemeente VARCHAR(255) NOT NULL,
-    postcode VARCHAR(4) NOT NULL
+    addressId INT AUTO_INCREMENT PRIMARY KEY,
+    streetName VARCHAR(255) NOT NULL,
+    houseNumber SMALLINT UNSIGNED NOT NULL,
+    postBox VARCHAR(3) NOT NULL,
+    city VARCHAR(255) NOT NULL,
+    postCode VARCHAR(4) NOT NULL,
+    INDEX idx_Addresses_streetName_houseNumber_postBox_city_postCode (streetName, houseNumber, postBox, city, postCode)
 )ENGINE = InnoDB;
 
 CREATE TABLE Users(
